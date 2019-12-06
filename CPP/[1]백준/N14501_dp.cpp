@@ -18,7 +18,8 @@ int go(int pos){
     if(pos > N+1){
         return -INF;
     }
-    int &ret = chk[pos];
+    // int &ret = chk[pos];
+    int ret = chk[pos];
     if(ret != -1){
         return ret;
     }
