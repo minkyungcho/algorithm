@@ -1,6 +1,7 @@
 // DP
-#include <iostream>
+#include<iostream>
 #include<vector>
+#include<cstring>
 #define MAX 15+1
 #define INF 987654321
 using namespace std;
@@ -21,14 +22,17 @@ int go(int pos){
     if(ret != -1){
         return ret;
     }
-    return ret = max(go(pos+1), go(pos+work[pos].first)+work[pos].second);
+    ret = 0;
+    ret += max(go(pos+1), go(pos+work[pos].first)+work[pos].second);
+    return ret;
 }
 int main(){
     scanf("%d", &N);
-    for(int i=0; i<N; i++){
+    for(int i=1; i<=N; i++){
         scanf("%d %d", &work[i].first, &work[i].second);
     }
     memset(chk, -1, sizeof(chk));
     int result = go(1);
     printf("%d\n", result);
+    return 0;
 }
